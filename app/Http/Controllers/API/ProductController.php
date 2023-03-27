@@ -101,4 +101,8 @@ class ProductController extends BaseController
    
         return $this->sendResponse([], 'Product deleted successfully.');
     }
+
+    public function getRecord(){
+        echo "Hi";
+    }
 }
