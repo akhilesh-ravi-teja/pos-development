@@ -1,5 +1,0 @@
----
-deployment:
-  tasks:
-    - export DEPLOYPATH=/home/mcoderin/public_html/pos-development
-    - /bin/cp -a * $DEPLOYPATH
