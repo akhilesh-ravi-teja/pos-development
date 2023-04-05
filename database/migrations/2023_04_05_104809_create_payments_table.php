@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->text('content');
+          // Payments Table
+          Schema::create('payments', function (Blueprint $table) {
+            $table->id('payment_id');
+            $table->foreignId('invoice_id')->constrained('invoices');
+            $table->dateTime('payment_datetime');
+            $table->decimal('payment_amount', 10, 2);
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('payments');
     }
 };
